@@ -1,0 +1,13 @@
+h1. WALKING
+
+Physics simulation of bipedal walking robots in javascript/coffeescript.  Still _*very much*_ a work in progress.
+
+!https://raw.github.com/charlieschwabacher/Walking/master/public/screencap.png!
+
+h3. uses:
+* JigLibJS2 port of the JigLib physics engine by bartdeboer: "https://github.com/bartdeboer/JigLibJS2":https://github.com/bartdeboer/JigLibJS2
+* THREE.js by mr.doob for visualization with webgl: "https://github.com/mrdoob/three.js/":https://github.com/bartdeboer/JigLibJS2
+
+h4. run a test server:
+* npm install
+* coffee server.coffee
