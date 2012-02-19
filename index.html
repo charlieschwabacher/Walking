@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Walking</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <script src="/jquery.min.js" type="text/javascript"></script>
+
+    <!-- Three.js -->
+    <script src="/three.min.js" type="text/javascript"></script>
+    <script src="/requestAnimationFrame.js" type="text/javascript"></script>
+
+    <!-- JigLibJS2 -->
+    <script src="/JigLibJS2/geom/glMatrix.js"></script>
+    <script src="/JigLibJS2/jiglib.js"></script>
+    <script src="/JigLibJS2/geom/Vector3d.js"></script>
+    <script src="/JigLibJS2/geom/Matrix3d.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/math/JMatrix3D.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/math/JMath3D.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/math/JNumber3D.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/cof/JConfig.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/CollOutData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/ContactData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/PlaneData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/EdgeData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/TerrainData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/OctreeCell.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/CollOutBodyData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/TriangleVertexIndices.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/data/SpanData.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/MaterialProperties.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollPointInfo.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollisionInfo.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectInfo.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectFunctor.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectBoxTerrain.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSphereMesh.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectCapsuleBox.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSphereCapsule.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectCapsuleTerrain.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSphereBox.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSphereTerrain.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectBoxBox.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectBoxMesh.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectBoxPlane.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectCapsuleCapsule.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSphereSphere.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectSpherePlane.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollDetectCapsulePlane.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollisionSystemAbstract.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollisionSystemGridEntry.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollisionSystemGrid.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/collision/CollisionSystemBrute.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JIndexedTriangle.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JOctree.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JRay.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JAABox.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JTriangle.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JSegment.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/events/JCollisionEvent.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/CachedImpulse.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/BodyPair.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/PhysicsSystem.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/PhysicsController.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/constraint/JConstraint.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/constraint/JConstraintMaxDistance.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/constraint/JConstraintWorldPoint.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/constraint/JConstraintPoint.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/HingeJoint.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/BodyPair.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/PhysicsState.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/physics/RigidBody.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JSphere.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JTriangleMesh.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JPlane.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JTerrain.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JBox.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/geometry/JCapsule.js"></script>
+    <script type="text/javascript" src="/JigLibJS2/debug/Stats.js"></script>
+
+    <!-- Simulation -->
+    <script src="/legs.js" type="text/javascript"></script>
+    <script src="/simulation.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+    <div id="menu">
+      <a id="pushLeft">push left</a>
+      <a id="pushRight">push right</a>
+      <a id="pushForward">push forward</a>
+      <a id="pushBack">push back</a>
+      <a id="pushUp">push up</a>
+      <a id="reset">reset</a>
+      <select id="pushBody">
+        <option value="hip" selected>hip</option>
+        <option value="leftFoot">left foot</option>
+        <option value="leftCrus">left crus</option>
+        <option value="leftThigh">left thigh</option>
+        <option value="rightFoot">right foot</option>
+        <option value="rightCrus">right crus</option>
+        <option value="rightThigh">right thigh</option>
+      </select>
+    </div>
+  </body>
+</html>

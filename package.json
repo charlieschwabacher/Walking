@@ -1,0 +1,11 @@
+{
+  'name':'walking',
+  'description':'A physics simulation of bipedal walking robots using THREE.js for visualization.  Still *very much* a work in progress.',
+  'author':'Charlie Schwabacher <charlieschwabacher@gmail.com>',
+  'version':'0.0.1',
+  'dependencies': {
+    'express':'>= 2.5.2',
+    'coffee-script':'>= 1.1.3'
+  },
+  'engine':'node 0.6.5'
+}

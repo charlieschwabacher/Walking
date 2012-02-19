@@ -1,0 +1,8 @@
+A physics simulation of bipedal walking robots.  Still *very much* a work in progress.
+Uses:
+JigLibJS2 port of the JigLib physics engine by bartdeboer: https://github.com/bartdeboer/JigLibJS2
+THREE.js by mr.doob for visualization with webgl: https://github.com/mrdoob/three.js/
+
+run the test server with:
+npm install
+coffee server.coffee

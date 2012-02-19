@@ -1,0 +1,68 @@
+html, body, canvas {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue, helvetica, arial, sans-serif;
+  -webkit-user-select: none;
+}
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#menu {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255,255,255,0.5);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 18px;
+  height: 60px;
+}
+#menu a {
+  float: left;
+  line-height: 24px;
+  padding:18px;
+  font-size:16px;
+  color: #0066CC;
+  cursor: pointer;
+}
+#menu a:hover {
+  background: #fff;
+}
+#menu select {
+  float: right;
+  display: block;
+  background: #fff;
+  border: solid 1px #999;
+  color: #666;
+  height: 24px;
+  font-size: 16px;
+  margin: 18px;
+  font-family: Helvetica Neue, helvetica, arial, sans-serif;
+  font-weight: 200;
+}
+#display {
+  position:absolute;
+  z-index: 2;
+  left:0;
+  top:0;
+  max-width: 30%;
+  padding: 18px;
+  margin: 18px;
+  background: rgba(255,255,255,0.5);
+  font-weight: 200;
+  font-family: Helvetica Neue;
+  color: #999;
+  cursor: default;
+}
+#display h1 {
+  font-weight: 200;
+  font-size: 24px;
+  margin: 0 0 8px 0;
+}
+#display p {
+  font-size: 16px;
+  margin:0 0 8px 0;
+}
